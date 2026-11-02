@@ -1,0 +1,5 @@
+{{ if ne .chezmoi.os "darwin" }}
+.zshrc
+.aliases
+.config/zed
+{{ end }}

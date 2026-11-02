@@ -1,0 +1,39 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "icon_theme": "Catppuccin Macchiato",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "base_keymap": "JetBrains",
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "vim_mode": true,
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Macchiato",
+  },
+}

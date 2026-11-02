@@ -1,0 +1,45 @@
+# Configuration Files
+alias writea='chezmoi edit --apply ~/.aliases && source ~/.aliases'
+alias writez='chezmoi edit --apply ~/.zshrc && exec zsh'
+alias writess='chezmoi edit --apply ~/.config/starship.toml'
+alias writew='chezmoi edit --apply ~/.wezterm.lua'
+alias writessh='chezmoi edit --apply ~/.ssh/config'
+
+# Linux
+alias caf='caffeinate -dis'
+alias h=history
+alias nv='nvim'
+alias lg='lazygit'
+alias cz='chezmoi cd'
+
+# Laravel
+alias art='php artisan'
+alias migrate='php artisan migrate'
+alias reseed='php artisan migrate:refresh --seed'
+alias freshseed='php artisan migrate:fresh --seed'
+alias rollback='php artisan migrate:rollback'
+alias rdev='npm run dev'
+alias rbuild='npm run build'
+alias pest='./vendor/bin/pest'
+alias phpunit='./vendor/bin/phpunit'
+alias ci='composer install'
+alias aoc='php artisan optimize:clear'
+
+# Codestyle
+alias pint='./vendor/bin/pint'
+alias pw='npx prettier . --write'
+alias phpinsights='art insights'
+alias ppp='pint;pw;phpinsights'
+
+# PHPUnit
+alias p='./vendor/bin/phpunit'
+
+# PHPStan
+alias stan='./vendor/bin/phpstan analyse'
+
+# SSH
+alias get-key='cat ~/.ssh/id_ed25519_work.pub'
+alias get-personal-key='cat ~/.ssh/id_rsa_personal.pub'
+
+# Fun
+alias matrix='npx matrix-rain'

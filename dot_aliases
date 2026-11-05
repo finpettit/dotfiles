@@ -4,6 +4,8 @@ alias writez='chezmoi edit --apply ~/.zshrc && exec zsh'
 alias writess='chezmoi edit --apply ~/.config/starship.toml'
 alias writew='chezmoi edit --apply ~/.wezterm.lua'
 alias writessh='chezmoi edit --apply ~/.ssh/config'
+alias writegit='chezmoi edit --apply ~/.gitconfig'
+alias writelg='chezmoi edit --apply ~/.config/lazygit/config.yml'
 
 # Linux
 alias caf='caffeinate -dis'
@@ -11,6 +13,7 @@ alias h=history
 alias nv='nvim'
 alias lg='lazygit'
 alias cz='chezmoi cd'
+alias servers='cat ~/.ssh/config.d/amperative | grep "Host " | cut -d " " -f 2 | sort'
 
 # Laravel
 alias art='php artisan'

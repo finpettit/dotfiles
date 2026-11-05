@@ -1,3 +1,5 @@
 git:
   log:
     showGraph: always
+  diffRenderers:
+    - command: delta --dark --paging=never

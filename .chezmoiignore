@@ -2,4 +2,5 @@
 .zshrc
 .aliases
 .config/zed
+.local/share/wezterm/wezterm.sh
 {{ end }}

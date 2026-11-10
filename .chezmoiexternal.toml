@@ -1,0 +1,4 @@
+[".local/share/wezterm/wezterm.sh"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/wezterm/wezterm/main/assets/shell-integration/wezterm.sh"
+    refreshPeriod = "168h"

@@ -38,3 +38,6 @@ export HERD_PHP_86_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/p
 # Boot
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
+
+# WezTerm shell integration
+[[ -n "$WEZTERM_PANE" && -r ~/.local/share/wezterm/wezterm.sh ]] && source ~/.local/share/wezterm/wezterm.sh

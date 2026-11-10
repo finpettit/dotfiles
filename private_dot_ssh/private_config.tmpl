@@ -17,7 +17,7 @@ Host github-personal
     IdentityFile ~/.ssh/id_rsa_personal
     IdentitiesOnly yes
 
-{{ if eq .chezmoi.os "darwin" }}
+{{ if ne .chezmoi.os "windows" }}
 Host *
     ControlMaster auto
     ControlPath ~/.ssh/cm-%C

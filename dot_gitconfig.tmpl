@@ -5,9 +5,12 @@
 [includeIf "gitdir:~/Desktop/Projects/personal/**"]
   path = ~/.gitconfig-personal
 
+{{- if lookPath "delta" }}
+
 [core]
   pager = delta
 
 [delta]
   navigate = true
   side-by-side = true
+{{- end }}

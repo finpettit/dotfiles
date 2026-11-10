@@ -23,7 +23,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 source <(fzf --zsh)
 
-
+{{ if eq .chezmoi.os "darwin" -}}
 # Add HERD PHP to CLI
 export PATH="$HOME/Library/Application Support/Herd/bin":$PATH
 export HERD_PHP_74_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/74/"
@@ -34,6 +34,7 @@ export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/p
 export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/84/"
 export HERD_PHP_85_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/85/"
 export HERD_PHP_86_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/86/"
+{{- end }}
 
 # Boot
 eval "$(starship init zsh)"

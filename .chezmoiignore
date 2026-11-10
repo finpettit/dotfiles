@@ -1,6 +1,18 @@
-{{ if ne .chezmoi.os "darwin" }}
+README.md
+
+{{ if eq .chezmoi.os "windows" }}
 .zshrc
 .aliases
+.config/nvim
+.config/lazygit
+.config/starship.toml
+.local/share/wezterm
+{{ end }}
+
+{{ if ne .chezmoi.os "darwin" }}
 .config/zed
-.local/share/wezterm/wezterm.sh
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+.wezterm.lua
 {{ end }}

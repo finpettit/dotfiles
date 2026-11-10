@@ -7,13 +7,18 @@ alias writessh='chezmoi edit --apply ~/.ssh/config'
 alias writegit='chezmoi edit --apply ~/.gitconfig'
 alias writelg='chezmoi edit --apply ~/.config/lazygit/config.yml'
 
-# Linux
+# General
+{{- if eq .chezmoi.os "darwin" }}
 alias caf='caffeinate -dis'
+{{- end }}
+{{- if .wsl }}
+alias open='explorer.exe'
+{{- end }}
 alias h=history
 alias nv='nvim'
 alias lg='lazygit'
 alias cz='chezmoi cd'
-alias servers='cat ~/.ssh/config.d/amperative | grep "Host " | cut -d " " -f 2 | sort'
+alias servers="awk '/^Host /{print \$2}' ~/.ssh/config.d/amperative | sort"
 
 # Laravel
 alias art='php artisan'
@@ -23,22 +28,20 @@ alias freshseed='php artisan migrate:fresh --seed'
 alias rollback='php artisan migrate:rollback'
 alias rdev='npm run dev'
 alias rbuild='npm run build'
-alias pest='./vendor/bin/pest'
-alias phpunit='./vendor/bin/phpunit'
 alias ci='composer install'
 alias aoc='php artisan optimize:clear'
+
+# Testing
+alias pest='./vendor/bin/pest'
+alias phpunit='./vendor/bin/phpunit'
+alias p='./vendor/bin/phpunit'
+alias stan='./vendor/bin/phpstan analyse'
 
 # Codestyle
 alias pint='./vendor/bin/pint'
 alias pw='npx prettier . --write'
 alias phpinsights='art insights'
 alias ppp='pint;pw;phpinsights'
-
-# PHPUnit
-alias p='./vendor/bin/phpunit'
-
-# PHPStan
-alias stan='./vendor/bin/phpstan analyse'
 
 # SSH
 alias get-key='cat ~/.ssh/id_ed25519_work.pub'

@@ -1,8 +1,15 @@
 {{- $work := promptBoolOnce . "work" "Work machine" -}}
 {{- $name := promptStringOnce . "name" "Git name on this machine" -}}
 {{- $email := promptStringOnce . "email" "Git email on this machine" -}}
+{{- $wsl := false -}}
+{{- if eq .chezmoi.os "linux" -}}
+{{-   if .chezmoi.kernel.osrelease | lower | contains "microsoft" -}}
+{{-     $wsl = true -}}
+{{-   end -}}
+{{- end -}}
 [data]
     work = {{ $work }}
+    wsl = {{ $wsl }}
     name = {{ $name | quote }}
     email = {{ $email | quote }}
 [edit]

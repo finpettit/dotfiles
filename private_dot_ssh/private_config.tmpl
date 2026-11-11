@@ -23,3 +23,9 @@ Host *
     ControlPath ~/.ssh/cm-%C
     ControlPersist 10m
 {{ end }}
+
+{{ if eq .chezmoi.os "darwin" }}
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+{{ end }}

@@ -17,6 +17,20 @@ local smart_splits = wezterm.plugin.require("https://github.com/smart-splits-nvi
 if is_mac then
 	config.unix_domains = { { name = "unix" } }
 	config.default_gui_startup_args = { "connect", "unix" }
+
+	-- The mux server doesn't inherit the launchd SSH agent socket, so pass it to panes explicitly
+	local ok, sock = pcall(function()
+		local handle = io.popen("/bin/launchctl getenv SSH_AUTH_SOCK")
+		if not handle then
+			return nil
+		end
+		local out = handle:read("*a")
+		handle:close()
+		return (out:gsub("%s+$", ""))
+	end)
+	if ok and sock and sock ~= "" then
+		config.set_environment_variables = { SSH_AUTH_SOCK = sock }
+	end
 end
 
 -- Appearance
@@ -159,7 +173,10 @@ if is_mac then
 	end
 
 	table.insert(config.keys, { key = "o", mods = "SUPER", action = workspace_switcher.switch_workspace() })
-	table.insert(config.keys, { key = "o", mods = "SUPER|SHIFT", action = workspace_switcher.switch_to_prev_workspace() })
+	table.insert(
+		config.keys,
+		{ key = "o", mods = "SUPER|SHIFT", action = workspace_switcher.switch_to_prev_workspace() }
+	)
 
 	table.insert(config.keys, { key = "LeftArrow", mods = "SUPER", action = act.SendString("\x01") })
 	table.insert(config.keys, { key = "RightArrow", mods = "SUPER", action = act.SendString("\x05") })
